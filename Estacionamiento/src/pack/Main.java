@@ -16,7 +16,7 @@ public class Main {
 				lista.add(new Coche("Coche-" + i, false, estacionamiento));
 		}
 
-		Thread monitor = new Thread(() -> {
+		Thread estado = new Thread(() -> {
 			try {
 				while (true) {
 					estacionamiento.Estado();
@@ -26,7 +26,7 @@ public class Main {
 
 			}
 		});
-		monitor.start();
+		estado.start();
 
 		for (Coche c : lista) {
 			c.start();
@@ -35,7 +35,7 @@ public class Main {
 			c.join();
 		}
 
-		monitor.interrupt();
+		estado.interrupt();
 
 		System.out.println("los coches han intentado aparcar");
 		System.out.println("Coches que aparcaron: " + estacionamiento.getCochesAparcadosTotal());
