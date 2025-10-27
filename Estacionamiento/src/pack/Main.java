@@ -34,7 +34,7 @@ public class Main {
 		for (Coche c : lista) {
 			c.join();
 		}
-
+//a
 		estado.interrupt();
 
 		System.out.println("los coches han intentado aparcar");
